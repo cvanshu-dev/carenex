@@ -242,20 +242,20 @@ export function AppointmentCard({
                     : `Dr. ${otherParty.name}`}
                 </h3>
                 {userRole === "DOCTOR" && (
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text- ">
                     {otherParty.email}
                   </p>
                 )}
                 {userRole === "PATIENT" && (
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text- ">
                     {otherParty.specialty}
                   </p>
                 )}
-                <div className="flex items-center mt-2 text-sm text-muted-foreground">
+                <div className="flex items-center mt-2 text-sm text- ">
                   <Calendar className="h-4 w-4 mr-1" />
                   <span>{formatDateTime(appointment.startTime)}</span>
                 </div>
-                <div className="flex items-center mt-1 text-sm text-muted-foreground">
+                <div className="flex items-center mt-1 text-sm text- ">
                   <Clock className="h-4 w-4 mr-1" />
                   <span>
                     {formatTime(appointment.startTime)} -{" "}
@@ -326,7 +326,7 @@ export function AppointmentCard({
           <div className="space-y-4 py-4">
             {/* Other Party Information */}
             <div className="space-y-2">
-              <h4 className="text-sm font-medium text-muted-foreground">
+              <h4 className="text-sm font-medium text- ">
                 {otherPartyLabel}
               </h4>
               <div className="flex items-center">
@@ -340,12 +340,12 @@ export function AppointmentCard({
                       : `Dr. ${otherParty.name}`}
                   </p>
                   {userRole === "DOCTOR" && (
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-  text-sm">
                       {otherParty.email}
                     </p>
                   )}
                   {userRole === "PATIENT" && (
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-  text-sm">
                       {otherParty.specialty}
                     </p>
                   )}
@@ -355,7 +355,7 @@ export function AppointmentCard({
 
             {/* Appointment Time */}
             <div className="space-y-2">
-              <h4 className="text-sm font-medium text-muted-foreground">
+              <h4 className="text-sm font-medium text- ">
                 Scheduled Time
               </h4>
               <div className="flex flex-col gap-1">
@@ -377,7 +377,7 @@ export function AppointmentCard({
 
             {/* Status */}
             <div className="space-y-2">
-              <h4 className="text-sm font-medium text-muted-foreground">
+              <h4 className="text-sm font-medium text- ">
                 Status
               </h4>
               <Badge
@@ -397,7 +397,7 @@ export function AppointmentCard({
             {/* Patient Description */}
             {appointment.patientDescription && (
               <div className="space-y-2">
-                <h4 className="text-sm font-medium text-muted-foreground">
+                <h4 className="text-sm font-medium text- ">
                   {userRole === "DOCTOR"
                     ? "Patient Description"
                     : "Your Description"}
@@ -413,7 +413,7 @@ export function AppointmentCard({
             {/* Join Video Call Button */}
             {appointment.status === "SCHEDULED" && (
               <div className="space-y-2">
-                <h4 className="text-sm font-medium text-muted-foreground">
+                <h4 className="text-sm font-medium text- ">
                   Video Consultation
                 </h4>
                 <Button
@@ -443,7 +443,7 @@ export function AppointmentCard({
             {/* Doctor Notes (Doctor can view/edit, Patient can only view) */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <h4 className="text-sm font-medium text-muted-foreground">
+                <h4 className="text-sm font-medium text- ">
                   Doctor Notes
                 </h4>
                 {userRole === "DOCTOR" &&
@@ -507,7 +507,7 @@ export function AppointmentCard({
                       {appointment.notes}
                     </p>
                   ) : (
-                    <p className="text-muted-foreground italic">
+                    <p className="text-  italic">
                       No notes added yet
                     </p>
                   )}

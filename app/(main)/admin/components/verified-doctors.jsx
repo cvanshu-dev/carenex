@@ -77,7 +77,7 @@ export function VerifiedDoctors({ doctors }) {
               </CardDescription>
             </div>
             <div className="relative w-full md:w-64">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text- " />
               <Input
                 placeholder="Search doctors..."
                 className="pl-8 bg-background border-fuchsia-900/20"
@@ -90,7 +90,7 @@ export function VerifiedDoctors({ doctors }) {
 
         <CardContent>
           {filteredDoctors.length === 0 ? (
-            <div className="text-center py-8 text-muted-foreground">
+            <div className="text-center py-8 text- ">
               {searchTerm
                 ? "No doctors match your search criteria."
                 : "No verified doctors available."}
@@ -114,11 +114,11 @@ export function VerifiedDoctors({ doctors }) {
                             <h3 className="font-medium text-white">
                               {doctor.name}
                             </h3>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text- ">
                               {doctor.specialty} • {doctor.experience} years
                               experience
                             </p>
-                            <p className="text-sm text-muted-foreground mt-1">
+                            <p className="text-sm text-  mt-1">
                               {doctor.email}
                             </p>
                           </div>

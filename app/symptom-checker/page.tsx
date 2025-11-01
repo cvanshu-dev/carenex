@@ -1,56 +1,60 @@
 "use client";
 import { useState } from "react";
 
-export default function SymptomChecker() {
-  const [input, setInput] = useState("");
-  const [results, setResults] = useState<any[]>([]);
+export default function SymptomCheckerPage() {
+  const [symptoms, setSymptoms] = useState("");
+  const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async () => {
+  async function handleCheck() {
+    if (!symptoms.trim()) {
+      alert("Please enter your symptoms first.");
+      return;
+    }
+
     setLoading(true);
-    setResults([]);
+    setResponse("");
 
-    const symptoms = input.split(",").map(s => s.trim());
-    const res = await fetch("/api/symptom-checker", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ symptoms }),
-    });
+    try {
+      const res = await fetch("/api/gemini", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: symptoms }), // ✅ important
+      });
 
-    const data = await res.json();
-    setLoading(false);
-    if (data.results) setResults(data.results);
-  };
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      setResponse(data.text);
+    } catch (err) {
+      setResponse(`Error: ${err.message}`);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
-    <div className="max-w-xl mx-auto mt-16 p-6 border rounded-xl shadow">
-      <h1 className="text-2xl font-bold mb-4">🩺 Symptom Checker</h1>
-      <p className="text-gray-500 mb-2">Enter symptoms separated by commas (e.g. fever, cough, headache)</p>
+    <div className="p-8 max-w-2xl mx-auto space-y-4">
+      <h1 className="text-2xl font-bold">AI Symptom Checker</h1>
+
       <textarea
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        className="w-full p-2 border rounded mb-4"
-        rows={3}
+        className="w-full p-3 border rounded-md"
+        rows={5}
+        placeholder="Describe your symptoms here..."
+        value={symptoms}
+        onChange={(e) => setSymptoms(e.target.value)}
       />
+
       <button
-        onClick={handleSubmit}
+        onClick={handleCheck}
         disabled={loading}
-        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        className="bg-fuchsia-500 text-white px-4 py-2 rounded-md"
       >
-        {loading ? "Checking..." : "Check"}
+        {loading ? "Checking..." : "Check Symptoms"}
       </button>
 
-      {results.length > 0 && (
-        <div className="mt-6">
-          <h2 className="text-lg font-semibold mb-2">Possible Diseases:</h2>
-          <ul className="space-y-2">
-            {results.map((r, i) => (
-              <li key={i} className="p-2 border rounded flex justify-between">
-                <span>{r.disease}</span>
-                <span className="text-gray-600">{r.probability}%</span>
-              </li>
-            ))}
-          </ul>
+      {response && (
+        <div className="mt-4 p-3 bg-gray-100 rounded-md whitespace-pre-wrap">
+          {response}
         </div>
       )}
     </div>

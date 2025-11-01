@@ -81,13 +81,13 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text- ">
                   Available Credits
                 </p>
                 <p className="text-3xl font-bold text-white">
                   {availableCredits}
                 </p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text- ">
                   ${availablePayout.toFixed(2)} available for payout
                 </p>
               </div>
@@ -102,7 +102,7 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">This Month</p>
+                <p className="text-sm text- ">This Month</p>
                 <p className="text-3xl font-bold text-white">
                   ${thisMonthEarnings.toFixed(2)}
                 </p>
@@ -118,13 +118,13 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text- ">
                   Total Appointments
                 </p>
                 <p className="text-3xl font-bold text-white">
                   {completedAppointments}
                 </p>
-                <p className="text-xs text-muted-foreground">completed</p>
+                <p className="text-xs text- ">completed</p>
               </div>
               <div className="bg-fuchsia-900/20 p-3 rounded-full">
                 <Calendar className="h-6 w-6 text-fuchsia-400" />
@@ -137,7 +137,7 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Avg/Month</p>
+                <p className="text-sm text- ">Avg/Month</p>
                 <p className="text-3xl font-bold text-white">
                   ${averageEarningsPerMonth.toFixed(2)}
                 </p>
@@ -186,19 +186,19 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
               <div className="space-y-2">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
                   <div>
-                    <p className="text-muted-foreground">Pending Credits</p>
+                    <p className="text- ">Pending Credits</p>
                     <p className="text-white font-medium">
                       {pendingPayout.credits}
                     </p>
                   </div>
                   <div>
-                    <p className="text-muted-foreground">Pending Amount</p>
+                    <p className="text- ">Pending Amount</p>
                     <p className="text-white font-medium">
                       ${pendingPayout.netAmount.toFixed(2)}
                     </p>
                   </div>
                   <div>
-                    <p className="text-muted-foreground">PayPal Email</p>
+                    <p className="text- ">PayPal Email</p>
                     <p className="text-white font-medium text-xs">
                       {pendingPayout.paypalEmail}
                     </p>
@@ -216,17 +216,17 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
                 <div>
-                  <p className="text-muted-foreground">Available Credits</p>
+                  <p className="text- ">Available Credits</p>
                   <p className="text-white font-medium">{availableCredits}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Payout Amount</p>
+                  <p className="text- ">Payout Amount</p>
                   <p className="text-white font-medium">
                     ${availablePayout.toFixed(2)}
                   </p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Platform Fee</p>
+                  <p className="text- ">Platform Fee</p>
                   <p className="text-white font-medium">
                     ${platformFee.toFixed(2)}
                   </p>
@@ -245,7 +245,7 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
 
             {availableCredits === 0 && !pendingPayout && (
               <div className="text-center py-4">
-                <p className="text-muted-foreground">
+                <p className="text- ">
                   No credits available for payout. Complete more appointments to
                   earn credits.
                 </p>
@@ -277,11 +277,11 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
                       <p className="text-white font-medium">
                         {format(new Date(payout.createdAt), "MMM d, yyyy")}
                       </p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text- ">
                         {payout.credits} credits • $
                         {payout.netAmount.toFixed(2)}
                       </p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs text- ">
                         {payout.paypalEmail}
                       </p>
                     </div>
@@ -318,19 +318,19 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
           <form onSubmit={handlePayoutRequest} className="space-y-4">
             <div className="bg-muted/20 p-4 rounded-lg space-y-2">
               <div className="flex justify-between">
-                <span className="text-muted-foreground">
+                <span className="text- ">
                   Available credits:
                 </span>
                 <span className="text-white">{availableCredits}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Gross amount:</span>
+                <span className="text- ">Gross amount:</span>
                 <span className="text-white">
                   ${(availableCredits * 10).toFixed(2)}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">
+                <span className="text- ">
                   Platform fee (20%):
                 </span>
                 <span className="text-white">-${platformFee.toFixed(2)}</span>
@@ -354,7 +354,7 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
                 className="bg-background border-fuchsia-900/20"
                 required
               />
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text- ">
                 Enter the PayPal email where you want to receive the payout.
               </p>
             </div>

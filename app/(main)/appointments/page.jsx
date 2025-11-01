@@ -48,11 +48,11 @@ export default async function PatientAppointmentsPage() {
             </div>
           ) : (
             <div className="text-center py-8">
-              <Calendar className="h-12 w-12 mx-auto text-muted-foreground mb-3" />
+              <Calendar className="h-12 w-12 mx-auto text-  mb-3" />
               <h3 className="text-xl font-medium text-white mb-2">
                 No appointments scheduled
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text- ">
                 You don&apos;t have any appointments scheduled yet. Browse our
                 doctors and book your first consultation.
               </p>

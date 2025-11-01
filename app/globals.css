@@ -44,6 +44,7 @@
 }
 
 :root {
+ 
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -51,12 +52,12 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+   --primary: oklch(0.63 0.24 320);
+  --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(80.78% 0.00009 271.152);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -79,18 +80,19 @@
 }
 
 .dark {
+ 
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.72 0.24 320);
+  --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: oklch(95.213% 0.00011 271.152);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
@@ -127,4 +129,27 @@
 
 @utility gradient-title {
   @apply gradient font-bold text-transparent bg-clip-text pb-1 pr-2;
+}
+/* app/globals.css */
+
+/* Add this to the end of your global CSS file */
+@keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.45; }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:root {
+  --primary: oklch(0.61 0.28 328); /* fuchsia base tone */
+  --primary-foreground: oklch(0.98 0 0); /* white text */
+}
+.dark {
+  --primary: oklch(0.61 0.28 328); /* same hue, keep it bright in dark mode */
+  --primary-foreground: oklch(0.98 0 0);
+}
+[data-slot="button"] {
+  outline: 2px solid red !important;
 }

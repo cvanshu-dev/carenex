@@ -110,7 +110,7 @@ export function AvailabilitySettings({ slots }) {
               </h3>
 
               {slots.length === 0 ? (
-                <p className="text-muted-foreground">
+                <p className="text- ">
                   You haven&apos;t set any availability slots yet. Add your
                   availability to start accepting appointments.
                 </p>
@@ -129,7 +129,7 @@ export function AvailabilitySettings({ slots }) {
                           {formatTimeString(slot.startTime)} -{" "}
                           {formatTimeString(slot.endTime)}
                         </p>
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-xs text- ">
                           {slot.appointment ? "Booked" : "Available"}
                         </p>
                       </div>
@@ -223,7 +223,7 @@ export function AvailabilitySettings({ slots }) {
             <AlertCircle className="h-4 w-4 mr-2 text-fuchsia-400" />
             How Availability Works
           </h4>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-  text-sm">
             Setting your daily availability allows patients to book appointments
             during those hours. The same availability applies to all days. You
             can update your availability at any time, but existing booked

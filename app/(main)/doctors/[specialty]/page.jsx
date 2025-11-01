@@ -37,7 +37,7 @@ export default async function DoctorSpecialtyPage({ params }) {
           <h3 className="text-xl font-medium text-white mb-2">
             No doctors available
           </h3>
-          <p className="text-muted-foreground">
+          <p className="text- ">
             There are currently no verified doctors in this specialty. Please
             check back later or choose another specialty.
           </p>

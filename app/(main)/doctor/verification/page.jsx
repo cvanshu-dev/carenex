@@ -53,7 +53,7 @@ export default async function VerificationPage() {
             {isRejected ? (
               <div className="bg-red-900/10 border border-red-900/20 rounded-lg p-4 mb-6 flex items-start">
                 <AlertCircle className="h-5 w-5 text-red-400 mr-3 mt-0.5 flex-shrink-0" />
-                <div className="text-muted-foreground text-left">
+                <div className="text-  text-left">
                   <p className="mb-2">
                     Our administrative team has reviewed your application and
                     found that it doesn&apos;t meet our current requirements.
@@ -73,7 +73,7 @@ export default async function VerificationPage() {
             ) : (
               <div className="bg-amber-900/10 border border-amber-900/20 rounded-lg p-4 mb-6 flex items-start">
                 <AlertCircle className="h-5 w-5 text-amber-400 mr-3 mt-0.5 flex-shrink-0" />
-                <p className="text-muted-foreground text-left">
+                <p className="text-  text-left">
                   Your profile is currently under review by our administrative
                   team. This process typically takes 1-2 business days.
                   You&apos;ll receive an email notification once your account is
@@ -82,7 +82,7 @@ export default async function VerificationPage() {
               </div>
             )}
 
-            <p className="text-muted-foreground mb-6">
+            <p className="text-  mb-6">
               {isRejected
                 ? "You can update your doctor profile and resubmit for verification."
                 : "While you wait, you can familiarize yourself with our platform or reach out to our support team if you have any questions."}

@@ -56,7 +56,7 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
         </div>
         <div className="flex items-center">
           <CreditCard className="h-5 w-5 text-fuchsia-400 mr-2" />
-          <span className="text-muted-foreground">
+          <span className="text- ">
             Cost: <span className="text-white font-medium">2 credits</span>
           </span>
         </div>
@@ -73,7 +73,7 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
           onChange={(e) => setDescription(e.target.value)}
           className="bg-background border-fuchsia-900/20 h-32"
         />
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text- ">
           This information will be shared with the doctor before your
           appointment.
         </p>

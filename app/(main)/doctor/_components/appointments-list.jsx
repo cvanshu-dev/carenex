@@ -31,7 +31,7 @@ export default function DoctorAppointmentsList() {
       <CardContent>
         {loading ? (
           <div className="text-center py-8">
-            <p className="text-muted-foreground">Loading appointments...</p>
+            <p className="text- ">Loading appointments...</p>
           </div>
         ) : appointments.length > 0 ? (
           <div className="space-y-4">
@@ -46,11 +46,11 @@ export default function DoctorAppointmentsList() {
           </div>
         ) : (
           <div className="text-center py-8">
-            <Calendar className="h-12 w-12 mx-auto text-muted-foreground mb-3" />
+            <Calendar className="h-12 w-12 mx-auto text-  mb-3" />
             <h3 className="text-xl font-medium text-white mb-2">
               No upcoming appointments
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text- ">
               You don&apos;t have any scheduled appointments yet. Make sure
               you&apos;ve set your availability to allow patients to book.
             </p>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import {
   Card,
   CardContent,
@@ -76,7 +77,7 @@ export function PendingDoctors({ doctors }) {
         </CardHeader>
         <CardContent>
           {doctors.length === 0 ? (
-            <div className="text-center py-8 text-muted-foreground">
+            <div className="text-center py-8 text- ">
               No pending verification requests at this time.
             </div>
           ) : (
@@ -96,7 +97,7 @@ export function PendingDoctors({ doctors }) {
                           <h3 className="font-medium text-white">
                             {doctor.name}
                           </h3>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-sm text- ">
                             {doctor.specialty} • {doctor.experience} years
                             experience
                           </p>
@@ -145,7 +146,7 @@ export function PendingDoctors({ doctors }) {
               {/* Basic Info */}
               <div className="flex flex-col md:flex-row gap-6">
                 <div className="space-y-1 flex-1">
-                  <h4 className="text-sm font-medium text-muted-foreground">
+                  <h4 className="text-sm font-medium text- ">
                     Full Name
                   </h4>
                   <p className="text-base font-medium text-white">
@@ -153,7 +154,7 @@ export function PendingDoctors({ doctors }) {
                   </p>
                 </div>
                 <div className="space-y-1 flex-1">
-                  <h4 className="text-sm font-medium text-muted-foreground">
+                  <h4 className="text-sm font-medium text- ">
                     Email
                   </h4>
                   <p className="text-base font-medium text-white">
@@ -161,7 +162,7 @@ export function PendingDoctors({ doctors }) {
                   </p>
                 </div>
                 <div className="space-y-1 flex-1">
-                  <h4 className="text-sm font-medium text-muted-foreground">
+                  <h4 className="text-sm font-medium text- ">
                     Application Date
                   </h4>
                   <p className="text-base font-medium text-white">
@@ -183,14 +184,14 @@ export function PendingDoctors({ doctors }) {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
                   <div className="space-y-1">
-                    <h4 className="text-sm font-medium text-muted-foreground">
+                    <h4 className="text-sm font-medium text- ">
                       Specialty
                     </h4>
                     <p className="text-white">{selectedDoctor.specialty}</p>
                   </div>
 
                   <div className="space-y-1">
-                    <h4 className="text-sm font-medium text-muted-foreground">
+                    <h4 className="text-sm font-medium text- ">
                       Years of Experience
                     </h4>
                     <p className="text-white">
@@ -199,7 +200,7 @@ export function PendingDoctors({ doctors }) {
                   </div>
 
                   <div className="space-y-1 col-span-2">
-                    <h4 className="text-sm font-medium text-muted-foreground">
+                    <h4 className="text-sm font-medium text- ">
                       Credentials
                     </h4>
                     <div className="flex items-center">
@@ -227,7 +228,7 @@ export function PendingDoctors({ doctors }) {
                     Service Description
                   </h3>
                 </div>
-                <p className="text-muted-foreground whitespace-pre-line">
+                <p className="text-  whitespace-pre-line">
                   {selectedDoctor.description}
                 </p>
               </div>
@@ -248,15 +249,24 @@ export function PendingDoctors({ doctors }) {
                 Reject
               </Button>
               <Button
-                onClick={() =>
-                  handleUpdateStatus(selectedDoctor.id, "VERIFIED")
-                }
-                disabled={loading}
-                className="bg-fuchsia-600 hover:bg-fuchsia-700"
-              >
-                <Check className="mr-2 h-4 w-4" />
-                Approve
-              </Button>
+  onClick={() => handleUpdateStatus(selectedDoctor.id, "VERIFIED")}
+  disabled={loading}
+  className="bg-fuchsia-600 hover:bg-fuchsia-700 text-white"
+>
+  {loading ? (
+    <>
+      <span className="mr-2 animate-spin">⏳</span>
+      Approving...
+    </>
+  ) : (
+    <>
+      <span className="mr-2">✔️</span>
+      Approve
+    </>
+  )}
+</Button>
+
+
             </DialogFooter>
           </DialogContent>
         </Dialog>

@@ -182,7 +182,7 @@ export default function VideoCall({ sessionId, token }) {
         <h1 className="text-3xl font-bold text-white mb-4">
           Invalid Video Call
         </h1>
-        <p className="text-muted-foreground mb-6">
+        <p className="text-  mb-6">
           Missing required parameters for the video call.
         </p>
         <Button
@@ -211,7 +211,7 @@ export default function VideoCall({ sessionId, token }) {
           <h1 className="text-3xl font-bold text-white mb-2">
             Video Consultation
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text- ">
             {isConnected
               ? "Connected"
               : isLoading
@@ -310,11 +310,11 @@ export default function VideoCall({ sessionId, token }) {
             </div>
 
             <div className="text-center">
-              <p className="text-muted-foreground text-sm">
+              <p className="text-  text-sm">
                 {isVideoEnabled ? "Camera on" : "Camera off"} •
                 {isAudioEnabled ? " Microphone on" : " Microphone off"}
               </p>
-              <p className="text-muted-foreground text-sm mt-1">
+              <p className="text-  text-sm mt-1">
                 When you're finished with your consultation, click the red
                 button to end the call
               </p>

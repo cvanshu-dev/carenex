@@ -95,27 +95,28 @@ export function DoctorProfile({ doctor, availableDays }) {
 
                 <div className="flex items-center justify-center mb-2">
                   <Medal className="h-4 w-4 text-fuchsia-400 mr-2" />
-                  <span className="text-muted-foreground">
+                  <span className="text- ">
                     {doctor.experience} years experience
                   </span>
                 </div>
 
-                <Button
-                  onClick={toggleBooking}
-                  className="w-full bg-fuchsia-600 hover:bg-fuchsia-700 mt-4"
-                >
-                  {showBooking ? (
-                    <>
-                      Hide Booking
-                      <ChevronUp className="ml-2 h-4 w-4" />
-                    </>
-                  ) : (
-                    <>
-                      Book Appointment
-                      <ChevronDown className="ml-2 h-4 w-4" />
-                    </>
-                  )}
-                </Button>
+               <Button
+  onClick={toggleBooking}
+  className="w-full bg-fuchsia-600 hover:bg-fuchsia-700 mt-4 text-white"
+>
+  {showBooking ? (
+    <>
+      Hide Booking
+      <ChevronUp className="ml-2 h-4 w-4" />
+    </>
+  ) : (
+    <>
+      Book Appointment
+      <ChevronDown className="ml-2 h-4 w-4" />
+    </>
+  )}
+</Button>
+
               </div>
             </CardContent>
           </Card>
@@ -139,7 +140,7 @@ export function DoctorProfile({ doctor, availableDays }) {
                 <FileText className="h-5 w-5 text-fuchsia-400" />
                 <h3 className="text-white font-medium">Description</h3>
               </div>
-              <p className="text-muted-foreground whitespace-pre-line">
+              <p className="text-  whitespace-pre-line">
                 {doctor.description}
               </p>
             </div>
@@ -154,7 +155,7 @@ export function DoctorProfile({ doctor, availableDays }) {
               {totalSlots > 0 ? (
                 <div className="flex items-center">
                   <Calendar className="h-5 w-5 text-fuchsia-400 mr-2" />
-                  <p className="text-muted-foreground">
+                  <p className="text- ">
                     {totalSlots} time slots available for booking over the next
                     4 days
                   </p>
@@ -207,11 +208,11 @@ export function DoctorProfile({ doctor, availableDays }) {
                   </>
                 ) : (
                   <div className="text-center py-6">
-                    <Calendar className="h-12 w-12 mx-auto text-muted-foreground mb-3" />
+                    <Calendar className="h-12 w-12 mx-auto text-  mb-3" />
                     <h3 className="text-xl font-medium text-white mb-2">
                       No available slots
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text- ">
                       This doctor doesn&apos;t have any available appointment
                       slots for the next 4 days. Please check back later or try
                       another doctor.

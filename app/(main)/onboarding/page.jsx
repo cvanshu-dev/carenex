@@ -219,7 +219,7 @@ export default function OnboardingPage() {
                   {errors.credentialUrl.message}
                 </p>
               )}
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text- ">
                 Please provide a link to your medical degree or certification
               </p>
             </div>
@@ -250,19 +250,20 @@ export default function OnboardingPage() {
                 Back
               </Button>
               <Button
-                type="submit"
-                className="bg-fuchsia-600 hover:bg-fuchsia-700"
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Submitting...
-                  </>
-                ) : (
-                  "Submit for Verification"
-                )}
-              </Button>
+  type="submit"
+  className="w-full mt-4 bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-medium shadow-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+  disabled={loading}
+>
+  {loading ? (
+    <>
+      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+      Submitting...
+    </>
+  ) : (
+    "Submit for Verification"
+  )}
+</Button>
+
             </div>
           </form>
         </CardContent>

@@ -33,23 +33,22 @@ export function DoctorCard({ doctor }) {
               </Badge>
             </div>
 
-            <p className="text-sm text-muted-foreground mb-1">
+            <p className="text-sm text mb-1">
               {doctor.specialty} • {doctor.experience} years experience
             </p>
 
-            <div className="mt-4 line-clamp-2 text-sm text-muted-foreground mb-4">
+            <div className="mt-4 line-clamp-2 text-sm text mb-4">
               {doctor.description}
             </div>
 
-            <Button
-              asChild
-              className="w-full bg-fuchsia-500 hover:bg-fuchsia-600 mt-2"
-            >
-              <Link href={`/doctors/${doctor.specialty}/${doctor.id}`}>
-                <Calendar className="h-4 w-4 mr-2" />
-                View Profile & Book
-              </Link>
-            </Button>
+            <Button asChild className="w-full bg-fuchsia-500 hover:bg-fuchsia-600 mt-2 text-white">
+  <Link href={`/doctors/${doctor.specialty}/${doctor.id}`}>
+    <Calendar className="h-4 w-4 mr-2" />
+    View Profile & Book
+  </Link>
+</Button>
+
+
           </div>
         </div>
       </CardContent>

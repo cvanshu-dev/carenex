@@ -12,7 +12,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-white to-grey-400">
 
 
-      {/* Hero Section */}
+      {/*   Section */}
       <section className="relative overflow-hidden py-32">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

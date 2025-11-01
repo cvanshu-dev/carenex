@@ -60,7 +60,7 @@ export function SlotPicker({ days, onSelectSlot }) {
         {days.map((day) => (
           <TabsContent key={day.date} value={day.date} className="pt-4">
             {day.slots.length === 0 ? (
-              <div className="text-center py-8 text-muted-foreground">
+              <div className="text-center py-8 text- ">
                 No available slots for this day.
               </div>
             ) : (
@@ -84,14 +84,14 @@ export function SlotPicker({ days, onSelectSlot }) {
                           className={`h-4 w-4 mr-2 ${
                             selectedSlot?.startTime === slot.startTime
                               ? "text-fuchsia-400"
-                              : "text-muted-foreground"
+                              : "text- "
                           }`}
                         />
                         <span
                           className={
                             selectedSlot?.startTime === slot.startTime
                               ? "text-white"
-                              : "text-muted-foreground"
+                              : "text- "
                           }
                         >
                           {format(new Date(slot.startTime), "h:mm a")}
