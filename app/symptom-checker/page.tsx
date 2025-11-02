@@ -56,6 +56,8 @@ export default function SymptomCheckerPage() {
       {error && <p className="text-red-600 text-sm">{error}</p>}
 
       <Button
+        variant="default"
+        size="default"
         onClick={handleCheck}
         disabled={loading}
         className="bg-fuchsia-500 hover:bg-fuchsia-600 text-white"
