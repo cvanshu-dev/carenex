@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Textarea } from "@/components/ui/textarea"
 
 export default function SymptomCheckerPage() {
   const [symptoms, setSymptoms] = useState("");
