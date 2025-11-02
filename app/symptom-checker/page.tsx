@@ -34,7 +34,7 @@ export default function SymptomCheckerPage() {
       const data = await res.json();
       if (!res.ok || data.error) throw new Error(data.error || "Unknown error");
       setResponse(data.text);
-    } catch (err) {
+    } catch (err: any) {
       setResponse(`Error: ${err.message}`);
     } finally {
       setLoading(false);
@@ -50,6 +50,7 @@ export default function SymptomCheckerPage() {
         placeholder="Describe your symptoms here..."
         value={symptoms}
         onChange={(e) => setSymptoms(e.target.value)}
+        className="border border-gray-300 rounded-md p-3 w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
       />
 
       {error && <p className="text-red-600 text-sm">{error}</p>}
