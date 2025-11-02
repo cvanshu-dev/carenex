@@ -42,7 +42,7 @@ export default function SymptomCheckerPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white p-8 max-w-2xl mx-auto space-y-4">
+    <div className="p-8 max-w-2xl mx-auto space-y-4">
       <h1 className="text-2xl font-bold">AI Symptom Checker</h1>
 
       <Textarea
@@ -50,15 +50,14 @@ export default function SymptomCheckerPage() {
         placeholder="Describe your symptoms here..."
         value={symptoms}
         onChange={(e) => setSymptoms(e.target.value)}
-        className="bg-gray-900 border-gray-700 text-white placeholder-gray-400"
       />
 
-      {error && <p className="text-red-400 text-sm">{error}</p>}
+      {error && <p className="text-red-600 text-sm">{error}</p>}
 
       <Button
         onClick={handleCheck}
         disabled={loading}
-        className="bg-fuchsia-600 hover:bg-fuchsia-700 text-white"
+        className="bg-fuchsia-500 hover:bg-fuchsia-600 text-white"
       >
         {loading ? (
           <>
@@ -70,7 +69,7 @@ export default function SymptomCheckerPage() {
       </Button>
 
       {response && (
-        <div className="mt-4 p-3 bg-gray-900 border border-gray-700 rounded-md whitespace-pre-wrap max-h-64 overflow-y-auto">
+        <div className="mt-4 p-3 bg-black text-white rounded-md whitespace-pre-wrap max-h-64 overflow-y-auto border border-gray-700">
           {response}
         </div>
       )}
