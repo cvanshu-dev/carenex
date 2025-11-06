@@ -22,9 +22,12 @@ export default function Home() {
                 Healthcare Results. Optimized by Data.  <br />
                 <span className="gradient-title">Find Top Doctors with proven results.</span>
               </h1>
-              <p className="text-lg md:text-xl text-fuchsia max-w-md">
-                Book video consultations and confidently manage your health journey using a platform that transparently displays doctor success rates.
-              </p>
+             <p className="text-lg md:text-xl text-gray-50 max-w-md">
+  Book video consultations and confidently manage your health journey using a platform that transparently displays doctor success rates.
+</p>
+
+
+
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   asChild

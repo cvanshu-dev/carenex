@@ -1,28 +1,25 @@
 "use client";
+
 import { useState } from "react";
-import { Loader2 } from "lucide-react";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import { DoctorCard } from "../(main)/doctors/components/doctor-card";
+
+ // adjust import path if different
 
 export default function SymptomCheckerPage() {
   const [symptoms, setSymptoms] = useState("");
   const [response, setResponse] = useState("");
+  const [doctors, setDoctors] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
   async function handleCheck() {
     if (!symptoms.trim()) {
-      setError("Please enter your symptoms first.");
-      return;
-    }
-    if (symptoms.length > 1000) {
-      setError("Please keep it under 1000 characters.");
+      alert("Please enter your symptoms first.");
       return;
     }
 
-    setError("");
     setLoading(true);
     setResponse("");
+    setDoctors([]);
 
     try {
       const res = await fetch("/api/gemini", {
@@ -32,8 +29,10 @@ export default function SymptomCheckerPage() {
       });
 
       const data = await res.json();
-      if (!res.ok || data.error) throw new Error(data.error || "Unknown error");
+      if (data.error) throw new Error(data.error);
+
       setResponse(data.text);
+      setDoctors(data.doctors || []);
     } catch (err: any) {
       setResponse(`Error: ${err.message}`);
     } finally {
@@ -42,38 +41,39 @@ export default function SymptomCheckerPage() {
   }
 
   return (
-    <div className="p-8 max-w-2xl mx-auto space-y-4">
-      <h1 className="text-2xl font-bold">AI Symptom Checker</h1>
+    <div className="p-8 max-w-3xl mx-auto space-y-6">
+      <h1 className="text-2xl font-bold text-white">AI Symptom Checker</h1>
 
-      <Textarea
+      <textarea
+        className="w-full p-3 border rounded-md bg-gray-900 text-white border-fuchsia-900/40 focus:ring-fuchsia-500"
         rows={5}
-        placeholder="Describe your symptoms here..."
+        placeholder="Describe your symptoms..."
         value={symptoms}
         onChange={(e) => setSymptoms(e.target.value)}
-        className="border border-gray-300 rounded-md p-3 w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
       />
 
-      {error && <p className="text-red-600 text-sm">{error}</p>}
-
-      <Button
-        variant="default"
-        size="default"
+      <button
         onClick={handleCheck}
         disabled={loading}
-        className="bg-fuchsia-500 hover:bg-fuchsia-600 text-white"
+        className="bg-fuchsia-600 text-white px-4 py-2 rounded-md hover:bg-fuchsia-700 transition-all"
       >
-        {loading ? (
-          <>
-            <Loader2 className="animate-spin mr-2 h-4 w-4" /> Checking...
-          </>
-        ) : (
-          "Check Symptoms"
-        )}
-      </Button>
+        {loading ? "Analyzing..." : "Check Symptoms"}
+      </button>
 
       {response && (
-        <div className="mt-4 p-3 bg-black text-white rounded-md whitespace-pre-wrap max-h-64 overflow-y-auto border border-gray-700">
+        <div className="mt-4 p-4 bg-gray-800 border border-fuchsia-900/30 rounded-md whitespace-pre-wrap text-gray-100">
           {response}
+        </div>
+      )}
+
+      {doctors.length > 0 && (
+        <div className="mt-8 space-y-4">
+          <h2 className="text-xl font-semibold text-white">Recommended Doctors</h2>
+          <div className="grid gap-4">
+            {doctors.map((doc) => (
+              <DoctorCard key={doc.id} doctor={doc} />
+            ))}
+          </div>
         </div>
       )}
     </div>

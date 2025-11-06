@@ -54,6 +54,12 @@ export default async function Header() {
               </Link>
             )}
 
+
+            <Link href="/reminders" className="text-sm font-medium">
+  💊 Reminders
+</Link>
+
+
  {/* 🧠 Symptom Checker Button */}
     <Link href="/symptom-checker">
       <Button
